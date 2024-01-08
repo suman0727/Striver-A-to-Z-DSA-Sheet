@@ -25,6 +25,7 @@ public class union {
         }
     }
 
+
     static ArrayList<Integer> union(int arr1[], int arr2[],int n, int m){
         HashMap<Integer,Integer> map=new HashMap<>();
         ArrayList<Integer> uni =new ArrayList<>();
