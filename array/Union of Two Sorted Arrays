@@ -1,0 +1,43 @@
+import java.sql.Array;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Scanner;
+
+public class union {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int m=sc.nextInt();
+
+        int[] arr1=new int[n];
+        int[] arr2=new int[m];
+        for(int i=0;i<arr1.length;i++){
+            arr1[i]=sc.nextInt();
+        }
+        for(int i=0;i<arr2.length;i++){
+            arr2[i]=sc.nextInt();
+        }
+        
+        ArrayList<Integer> uni = union(arr1, arr2, n, m);
+        for(int val: uni){
+            System.out.print(val+ " ");
+        }
+    }
+
+    static ArrayList<Integer> union(int arr1[], int arr2[],int n, int m){
+        HashMap<Integer,Integer> map=new HashMap<>();
+        ArrayList<Integer> uni =new ArrayList<>();
+        for(int i=0;i<n;i++){
+            map.put(arr1[i],map.getOrDefault(arr1[i],0)+1);
+        }
+
+        for(int i=0;i<m;i++){
+            map.put(arr2[i],map.getOrDefault(arr2[i],0)+1);
+        }g
+        for(int k:map.keySet()){
+            uni.add(k);     
+        }
+         return uni;
+    }
+}
