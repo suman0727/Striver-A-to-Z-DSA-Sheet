@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+public class LongestSubarray {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        long k=sc.nextInt();
+
+        int[] arr=new int[n];
+       for(int i=0;i<n;i++){
+        arr[i]=sc.nextInt();
+       }
+
+       int ans=longSubArray(arr, k);
+       System.out.println(ans);
+    }
+
+    static int longSubArray(int[]arr, long k){
+        int n=arr.length;
+
+        int length=0;
+        for(int i=0;i<n;i++){
+            for(int j=i;j<n;j++){
+                long s=0;
+                for(int K=i;K<=j;K++){
+                    s +=arr[K];
+                }
+                if(s==k)
+                length=Math.max(length, j - i + 1);
+            }
+        }
+        return length;
+    }
+}
