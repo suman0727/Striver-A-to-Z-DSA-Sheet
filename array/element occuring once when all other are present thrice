@@ -1,0 +1,35 @@
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class Unique {
+    public static void main(String[] args) {
+       Scanner sc=new Scanner(System.in);
+       int n=sc.nextInt();
+       
+       int[] arr=new int[n];
+       for(int i=0;i<n;i++){
+        arr[i]=sc.nextInt();
+       }
+
+       int ans=single(arr);
+       System.out.println(ans);
+    }
+
+    static int single(int[] arr){
+        int n=arr.length;
+    HashMap<Integer,Integer> hm=new HashMap<>();
+
+        for(int i=0;i<n;i++){
+            int value=hm.getOrDefault(arr[i], 0);
+            hm.put(arr[i], value+1);
+        }
+
+        for(Map.Entry<Integer, Integer> it: hm.entrySet()){
+            if(it.getValue()==1){
+                return it.getKey();
+            }           
+        }
+        return -1;
+    }
+}
